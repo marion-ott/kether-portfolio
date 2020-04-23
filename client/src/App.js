@@ -1,13 +1,32 @@
 import React from 'react';
-import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import Card from "./components/organisms/card";
+import CardTitle from "./components/organisms/card/card-title";
+import CardSubtitle from "./components/organisms/card/card-subtitle";
+import Typography from "./components/atoms/typography";
 
 function Home() {
-  return <h2>Home</h2>;
+  return (
+    <>
+      <h2>Home</h2>
+      <Card>
+        <CardTitle>
+          <Typography size="extraLarge">
+            Tom Clancy’s EliteSquad
+            </Typography>
+        </CardTitle>
+        <CardSubtitle>
+          <Typography size="medium">
+            Ubisoft
+            </Typography>
+        </CardSubtitle>
+      </Card>
+    </>
+  );
 }
 
 function About() {
