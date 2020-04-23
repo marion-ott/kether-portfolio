@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Small, Medium, Large, extraLarge } from '../stories/typography.stories';
+import { Small, Medium, Large, ExtraLarge } from '../stories/typography.stories';
 
 describe('Renders Typography component', () => {
     test('with default behavior', () => {
@@ -29,7 +29,7 @@ describe('Renders Typography component', () => {
     });
 
     test('with a extra large size', () => {
-        const { container, getByTestId } = render(<Large />);
+        const { container, getByTestId } = render(<ExtraLarge />);
         expect(container).toBeTruthy();
         const label = getByTestId('extraLarge-label')
       expect(label).toHaveStyleRule('font-size', '32px');
