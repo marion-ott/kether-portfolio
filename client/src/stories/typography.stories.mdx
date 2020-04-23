@@ -1,0 +1,25 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Small, Medium, Large, ExtraLarge} from './typography.stories';
+import Typography from '../components/atoms/typography';
+
+<Meta title="Atoms|Typography" component={Typography} />
+
+# Typography
+
+This section describe all variant of Typography component. You can play with 3 sizes: `small`, `medium` and `large`.
+
+<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
+    <Small />
+    <Medium />
+    <Large />
+</div>
+
+Now let's see in details !
+
+```javascript
+<Typography size="large">Large Typography</Typography>
+```
+
+# Props
+
+<Props of={Typography} />

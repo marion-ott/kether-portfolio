@@ -17,12 +17,12 @@ function Home() {
         <CardTitle>
           <Typography size="extraLarge">
             Tom Clancy’s EliteSquad
-            </Typography>
+          </Typography>
         </CardTitle>
         <CardSubtitle>
           <Typography size="medium">
             Ubisoft
-            </Typography>
+          </Typography>
         </CardSubtitle>
       </Card>
     </>
