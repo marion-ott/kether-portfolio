@@ -1,0 +1,4 @@
+type Work {
+  id: ID! @id
+  name: String!
+}
