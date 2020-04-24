@@ -20,7 +20,7 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/work">
+        <Route path="/work/:projectName">
           <Work />
         </Route>
         <Route path="/">
