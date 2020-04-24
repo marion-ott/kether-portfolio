@@ -1,7 +1,23 @@
 import React from 'react';
 import Typography from '../components/atoms/typography';
 
-export const Small = () => <Typography size='small' testid="small-label"><span>Small label</span></Typography>;
-export const Medium = () => <Typography testid="medium-label"><span>Medium label</span></Typography>;
-export const Large = () => <Typography size='large' testid="large-label"><span>Large label</span></Typography>;
-export const ExtraLarge = () => <Typography size='extraLarge' testid="extraLarge-label"><span>Extra Large label</span></Typography>;
+export const H1 = () =>
+    <Typography size='h1' testid="h1-typo"><span>h1-typo</span></Typography>;
+
+export const H2 = () =>
+    <Typography size="h2" testid="h2-typo"><span>h2-typo</span></Typography>;
+
+export const H3 = () =>
+    <Typography size='h3' testid="h3-typo"><span>h3-typo</span></Typography>;
+
+export const H4 = () =>
+    <Typography size='h4' testid="h4-typo"><span>h4-typo</span></Typography>;
+
+export const BodyLarge = () =>
+    <Typography size='bodyLarge' testid="bodyLarge-typo"><span>bodyLarge-</span></Typography>;
+
+export const Body = () =>
+    <Typography testid="body-typo"><span>body-typo</span></Typography>;
+
+export const Label = () =>
+    <Typography size='label' testid="label-typo" testid="label-typo"><span>label-typo</span></Typography>;

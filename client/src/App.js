@@ -15,12 +15,12 @@ function Home() {
       <h2>Home</h2>
       <Card>
         <CardTitle>
-          <Typography size="extraLarge">
+          <Typography size="h2">
             Tom Clancy’s EliteSquad
           </Typography>
         </CardTitle>
         <CardSubtitle>
-          <Typography size="medium">
+          <Typography size="body">
             Ubisoft
           </Typography>
         </CardSubtitle>
