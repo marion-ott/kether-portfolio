@@ -6,12 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./Home";
 import Work from "./Work";
-
-
-
-function About() {
-  return <h2>About</h2>;
-}
+import About from "./About";
 
 function App() {
   return (

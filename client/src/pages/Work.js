@@ -70,14 +70,15 @@ function Work() {
       description: "Tom Clancy’s EliteSquad est un jeu vidéo mobile RPG à univers militaire développé par Owlient et édité par Ubisoft. Le joueur peut collectionner et partir en mission avec les différents personnages de la franchise Tom Clancy dans des combats en temps réel.",
     }
   }
+  const { eliteSquad: { name, company, skills, softwares, description } } = data;
 
   return (
     <>
       <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh" }}>
-        {workHeader(data.eliteSquad.name, data.eliteSquad.company, data.eliteSquad.skills, data.eliteSquad.softwares)}
-        {workDescription(data.eliteSquad.description)}
+        {workHeader(name, company, skills, softwares)}
+        {workDescription(description)}
         {workPreview()}
-        {workDescription(data.eliteSquad.description)}
+        {workDescription(description)}
       </section>
     </>
   )
