@@ -1,9 +1,22 @@
+@font-face {
+  font-family: 'SpaceGrotesk-Regular';
+  src: url(./fonts/spacegrotesk/SpaceGrotesk-Regular.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SpaceGrotesk-SemiBold';
+  src: url(./fonts/spacegrotesk/SpaceGrotesk-SemiBold.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Syne-Bold';
+  src: url(./fonts/syne/Syne-Bold.otf) format('truetype');
+}
+
 body {
   background-color: gainsboro;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "SpaceGrotesk-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

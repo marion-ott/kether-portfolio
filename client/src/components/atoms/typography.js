@@ -3,47 +3,55 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from "../../theme";
 
+
 const sizes = {
     h1: {
         fontSize: '64px',
-        lineHeight: "auto",
+        lineHeight: "normal",
         fontWeight: "bold",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "Syne-Bold",
     },
     h2: {
         fontSize: '32px',
         fontWeight: "bold",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "Syne-Bold",
     },
     h3: {
         fontSize: '24px',
-        lineHeight: "auto",
+        lineHeight: "normal",
         fontWeight: "bold",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "Syne-Bold",
     },
     h4: {
         fontSize: '18px',
-        lineHeight: "auto",
+        lineHeight: "normal",
         fontWeight: "bold",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "Syne-Bold",
     },
     bodyLarge: {
         fontSize: '24px',
         lineHeight: "150%",
         fontWeight: "regular",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "SpaceGrotesk-Regular",
     },
     body: {
         fontSize: '14px',
         lineHeight: "150%",
         fontWeight: "regular",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "SpaceGrotesk-Regular",
     },
     label: {
         fontSize: '14px',
-        lineHeight: "auto",
+        lineHeight: "normal",
         fontWeight: "semiBold",
-        letterSpacing: "0",
+        letterSpacing: "normal",
+        fontFamily: "SpaceGrotesk-SemiBold",
     }
 }
 
@@ -56,16 +64,13 @@ const colors = {
     },
 }
 
-const StyledTypography = styled.label`
-    font-family: Roboto;
-    font-weight: 400;
+const StyledTypography = styled.p`
     color: ${props => colors[props.color].color};
     font-size: ${props => sizes[props.size].fontSize};
     line-height: ${props => sizes[props.size].lineHeight};
     font-weight: ${props => sizes[props.size].fontWeight};
     letter-spacing: ${props => sizes[props.size].letterSpacing};
-    text-transform: uppercase;
-    padding-bottom: 8px;
+    font-family: ${props => sizes[props.size].fontFamily};
 `;
 
 const Typography = ({ size, color, children, testid }) => {
