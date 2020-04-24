@@ -1,26 +1,17 @@
 export const colors = {
-    common: {
-        black: "#000",
-        white: "#fff",
+    main: {
+        primary: "#131313",
+        secondary: "#fff",
+        accent: "#FF5B5B",
     },
-    primary: {
-        main:"#ff0000",
-        light:"#ff0000",
-        dark:"#ff0000",
+    navigation: {
+        works:"#FAFF00",
+        about:"#9C79FF",
+        contact:"#4CD4FF",
     },
-    secondary: {
-        main:"#ff0000",
-        light:"#ff0000",
-        dark:"#ff0000",
-    },
-    success: {
-        main:"#ff0000",
-        light:"#ff0000",
-        dark:"#ff0000",
-    },
-    error: {
-        main:"#ff0000",
-        light:"#ff0000",
-        dark:"#ff0000",
+    project: {
+        green:"#88CC00",
+        blue:"#5B62FF",
+        orange:"#E17242",
     },
 }
