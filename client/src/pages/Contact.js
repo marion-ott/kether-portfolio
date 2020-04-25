@@ -13,7 +13,7 @@ function Contact() {
   return (
     <>
       <Nav />
-      <section style={{ minHeight: "100vh", width: "100%", backgroundColor: theme.colors.main.primary }}>
+      <section style={{ padding: "50px 150px", minHeight: "100vh", width: "100%", backgroundColor: theme.colors.main.primary }}>
         <Typography size="h1">Want to get in touch? ping me</Typography>
 
 

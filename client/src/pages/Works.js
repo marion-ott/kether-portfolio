@@ -10,7 +10,7 @@ import theme from "../theme";
 
 function CardComp({name, place, link}) {
   return (
-    <Link to={`/work/${link}`}>
+    <Link style={{ color: theme.colors.main.secondary, textDecoration: "none" }} to={`/work/${link}`}>
       <Card>
         <CardTitle>
           <Typography size="h2">
@@ -31,7 +31,7 @@ function Works() {
   return (
     <>
       <Nav />
-      <section style={{minHeight: "100vh", width: "100%", backgroundColor: theme.colors.main.primary,  display: "flex", justifyContent:"space-around" }}>
+      <section style={{ padding: "150px", minHeight: "100vh", width: "100%", backgroundColor: theme.colors.main.primary,  display: "flex", justifyContent:"space-around" }}>
         <CardComp name="Tom Clancy’s EliteSquad" place="Ubisoft" link="elite-squad"/>
         <CardComp name="Hungry Sharks" place="Ubisoft" link="hungry-sharks"/>
         <CardComp name="Xenos" place="Hetic" link="xenos"/>

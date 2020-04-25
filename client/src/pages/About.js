@@ -1,6 +1,5 @@
 //TODO : use styled components rather than inline crappy style.
 // TODO : use api
-// TODO : Inject navigation on top
 
 import React from "react";
 import Typography from "../components/atoms/typography";
@@ -46,18 +45,18 @@ function Tab({ date, name, place }) {
   )
 }
 
-function Tabs() {
+function Tabs({ type }) {
   console.log(me)
   return (
-    <div>
-      {me.map(({ date, name, place }) => <Tab date={date} name={name} place={place} />)}
-    </div>
+    <>
+      {me.filter((e) => e.type === type).map(({ date, name, place }) => <Tab date={date} name={name} place={place} />)}
+    </>
   )
 }
 
 function Description() {
   return (
-    <Typography size="body">Intégration à l’équipe Editioriale du Mobile HQ, supervision et production dans les différents projets du portfolio Ubisoft Mobile Games : Idéation, parcours utilisateur, arborescences, sketching, wireframing, prototypage, conférences et présentations d’outils design et pipeline.
+    <Typography size="bodyLarge">Intégration à l’équipe Editioriale du Mobile HQ, supervision et production dans les différents projets du portfolio Ubisoft Mobile Games : Idéation, parcours utilisateur, arborescences, sketching, wireframing, prototypage, conférences et présentations d’outils design et pipeline.
 
     Intégration à l’équipe Editioriale du Mobile HQ, supervision et production dans les différents projets du portfolio Ubisoft Mobile Games : Idéation,
 
@@ -77,37 +76,43 @@ function About() {
   return (
     <>
       <Nav isHome={false} />
-      <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "50px" }}>
+      <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "0px 150px" }}>
 
         <Typography size="h1">Want to know more about me ?</Typography>
 
         {/* bottom */}
-        <div style={{ border: "2px solid blue", display: "flex" }}>
+        <div style={{ display: "flex" }}>
 
 
           {/* tab */}
-          <div style={{ border: "2px solid red", flex: 1 }}>
-            {Tabs()}
+          <div style={{ flex: 1 }}>
+
+            <div style={{ flex: 1, height: "50%", display: "flex", flexDirection: "column", alignItems: "space-evenly" }}>
+              <Tabs type="work" />
+            </div>
+            <div style={{ flex: 1, height: "50%", display: "flex", flexDirection: "column", alignItems: "space-evenly" }}>
+              <Tabs type="formation" />
+            </div>
           </div>
 
           {/* pictures */}
-          <div style={{ border: "2px solid green", flex: 1, display: "flex" }}>
+          <div style={{ flex: 1, display: "flex" }}>
 
             {/* left */}
-            <div style={{ border: "2px solid yellow", flex: 1 }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", padding: "50px" }}>
               <Picture />
               <Picture />
             </div>
 
             {/* right */}
-            <div style={{ border: "2px solid yellow", display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
+            <div style={{ display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
               <Picture />
             </div>
 
           </div>
 
           {/* description */}
-          <div style={{ border: "2px solid pink", flex: 1 }}>
+          <div style={{ flex: 1, paddingLeft: "50px" }}>
             <Description />
           </div>
 
