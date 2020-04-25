@@ -75,43 +75,45 @@ function Picture() {
 
 function About() {
   return (
-    <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "50px" }}>
+    <>
       <Nav isHome={false} />
+      <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "50px" }}>
 
-      <Typography size="h1">Want to know more about me ?</Typography>
+        <Typography size="h1">Want to know more about me ?</Typography>
 
-      {/* bottom */}
-      <div style={{ border: "2px solid blue", display: "flex" }}>
+        {/* bottom */}
+        <div style={{ border: "2px solid blue", display: "flex" }}>
 
 
-        {/* tab */}
-        <div style={{ border: "2px solid red", flex: 1 }}>
-          {Tabs()}
-        </div>
-
-        {/* pictures */}
-        <div style={{ border: "2px solid green", flex: 1, display: "flex" }}>
-
-          {/* left */}
-          <div style={{ border: "2px solid yellow", flex: 1 }}>
-            <Picture />
-            <Picture />
+          {/* tab */}
+          <div style={{ border: "2px solid red", flex: 1 }}>
+            {Tabs()}
           </div>
 
-          {/* right */}
-          <div style={{ border: "2px solid yellow", display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
-            <Picture />
+          {/* pictures */}
+          <div style={{ border: "2px solid green", flex: 1, display: "flex" }}>
+
+            {/* left */}
+            <div style={{ border: "2px solid yellow", flex: 1 }}>
+              <Picture />
+              <Picture />
+            </div>
+
+            {/* right */}
+            <div style={{ border: "2px solid yellow", display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
+              <Picture />
+            </div>
+
+          </div>
+
+          {/* description */}
+          <div style={{ border: "2px solid pink", flex: 1 }}>
+            <Description />
           </div>
 
         </div>
-
-        {/* description */}
-        <div style={{ border: "2px solid pink", flex: 1 }}>
-          <Description />
-        </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
 
