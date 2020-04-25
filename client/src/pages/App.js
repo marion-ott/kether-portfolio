@@ -8,6 +8,7 @@ import Home from "./Home";
 import Work from "./Work";
 import About from "./About";
 import Works from "./Works";
+import Contact from "./Contact";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/work/:projectName">
           <Work />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
         <Route path="/">
           <Home />
