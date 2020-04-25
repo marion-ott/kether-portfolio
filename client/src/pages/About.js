@@ -5,6 +5,7 @@
 import React from "react";
 import Typography from "../components/atoms/typography";
 import theme from "../theme";
+import Nav from "../components/organisms/nav";
 
 const me = [
   {
@@ -35,11 +36,13 @@ const me = [
 
 function Tab({ date, name, place }) {
   return (
-    <div style={{ marginBottom: "1rem", cursor: "pointer" }}>
-      <Typography size="body">{date}</Typography>
-      <Typography size="h4">{name}</Typography>
-      <Typography size="h4">- {place}</Typography>
-    </div>
+    <>
+      <div style={{ marginBottom: "1rem", cursor: "pointer" }}>
+        <Typography size="body">{date}</Typography>
+        <Typography size="h4">{name}</Typography>
+        <Typography size="h4">- {place}</Typography>
+      </div>
+    </>
   )
 }
 
@@ -73,6 +76,8 @@ function Picture() {
 function About() {
   return (
     <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "50px" }}>
+      <Nav isHome={false} />
+
       <Typography size="h1">Want to know more about me ?</Typography>
 
       {/* bottom */}

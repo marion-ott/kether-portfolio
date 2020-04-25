@@ -7,6 +7,7 @@ import {
 import Home from "./Home";
 import Work from "./Work";
 import About from "./About";
+import Works from "./Works";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/works">
+          <Works />
         </Route>
         <Route path="/work/:projectName">
           <Work />
