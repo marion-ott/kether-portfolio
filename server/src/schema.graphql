@@ -1,0 +1,12 @@
+type Query {
+  works: [Work!]!
+}
+
+type Mutation {
+  createWork(name: String!): Work!
+}
+
+type Work {
+  id: ID!
+  name: String!
+}
