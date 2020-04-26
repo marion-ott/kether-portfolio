@@ -1,9 +1,9 @@
 import React from "react";
-import theme from "../../theme";
+import Theme from "../../Theme";
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const white = theme.colors.main.secondary;
+const white = Theme.colors.main.secondary;
 
 const positions = {
   topLeft: {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useParams } from "react-router-dom";
-import theme from "../theme";
+import Theme from "../Theme";
 import img from "../elite-squad.png";
 import prev from "../preview.png";
 import Typography from "../components/atoms/typography";
@@ -12,7 +12,7 @@ import TitleGroup from "../components/molecules/card/TitleGroup";
 function workHeader(name, company, skills, softwares) {
   return (
     <header style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", paddingTop: "125px" }}>
-      <div style={{ backgroundColor: theme.colors.project.green, width: "100%", height: "325px", position: "absolute", top: "0", zIndex: 0 }}></div>
+      <div style={{ backgroundColor: Theme.colors.project.green, width: "100%", height: "325px", position: "absolute", top: "0", zIndex: 0 }}></div>
 
       <img src={img} alt={"img-alt"} style={{ height: "300px", zIndex: "1", position: "relative", top: "-140px", left: "-160px" }} />
 
@@ -22,12 +22,12 @@ function workHeader(name, company, skills, softwares) {
 
         <div style={{ display: "flex", height: "250px" }}>
           <div style={{ width: "50%", height: "250px" }}>
-            <Typography size="h4">Skills</Typography>
+            <Typography margin size="h4">Skills</Typography>
             {skills.map((skill, i) => <Typography key={i} size="body">{skill}</Typography>)}
           </div>
 
           <div style={{ width: "50%", height: "250px" }}>
-            <Typography size="h4">Softwares</Typography>
+            <Typography margin size="h4">Softwares</Typography>
             {softwares.map((software, i) => <Typography key={i} size="body">{software}</Typography>)}
           </div>
         </div>
@@ -71,7 +71,7 @@ function Work() {
 
   return (
     <>
-      <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh" }}>
+      <section style={{ backgroundColor: Theme.colors.main.primary, minHeight: "100vh" }}>
         {workHeader(name, company, skills, softwares)}
         {workDescription(description)}
         {workPreview()}

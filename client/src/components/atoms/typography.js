@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import theme from "../../theme";
+import Theme from "../../Theme";
 
 
 const sizes = {
@@ -57,16 +57,16 @@ const sizes = {
 
 const colors = {
     primary: {
-        color: theme.colors.main.primary,
+        color: Theme.colors.main.primary,
     },
     secondary: {
-        color: theme.colors.main.secondary,
+        color: Theme.colors.main.secondary,
     },
     blue: {
-        color: theme.colors.project.blue,
+        color: Theme.colors.project.blue,
     },
     yellow: {
-        color: theme.colors.navigation.works,
+        color: Theme.colors.navigation.works,
     }
 }
 
@@ -92,14 +92,12 @@ Typography.defaultProps = {
     testid: 'Typography',
     color: 'secondary',
     margin: false,
-    width: "100%",
     isActive: true,
 };
 
 Typography.propTypes = {
     size: PropTypes.oneOf(['h1', 'h2', 'h3', "h4", "bodyLarge", "body", "label"]),
     color: PropTypes.oneOf(['primary', 'secondary', "blue", "yellow"]),
-    children: PropTypes.element.isRequired,
     testid: PropTypes.string,
     margin: PropTypes.bool,
     width: PropTypes.number,

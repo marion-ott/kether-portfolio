@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "../../atoms/typography";
-import theme from "../../../theme";
+import Theme from "../../../Theme";
 import { Link } from "react-router-dom";
 import NavButton from "../../atoms/navButton";
 
@@ -15,7 +15,7 @@ function Nav({ isHome = false }) {
           <Typography size="h1">Valentine Leroy</Typography>
           :
           <Typography size="h3">
-            <Link style={{ color: theme.colors.main.secondary, textDecoration: "none" }} to="/">Valentine Leroy</Link>
+            <Link style={{ color: Theme.colors.main.secondary, textDecoration: "none" }} to="/">Valentine Leroy</Link>
           </Typography>}
 
       </div>

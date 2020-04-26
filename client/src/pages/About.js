@@ -3,7 +3,7 @@
 
 import React from "react";
 import Typography from "../components/atoms/typography";
-import theme from "../theme";
+import Theme from "../Theme";
 import Nav from "../components/organisms/nav";
 import AboutTab from "../components/molecules/about/Tab";
 
@@ -64,7 +64,7 @@ function About() {
   return (
     <>
       <Nav isHome={false} />
-      <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "0px 150px" }}>
+      <section style={{ backgroundColor: Theme.colors.main.primary, minHeight: "100vh", padding: "0px 150px" }}>
 
         <Typography width={800} margin size="h1">Want to know more about me ?</Typography>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
 import PropTypes from 'prop-types';
-import theme from "../../theme";
+import Theme from "../../Theme";
 
 const sizes = {
   fullWidth: {
@@ -19,12 +19,12 @@ const sizes = {
 }
 
 const StyledInput = Styled.input`
-  border: 2px solid ${theme.colors.main.secondary}; 
+  border: 2px solid ${Theme.colors.main.secondary}; 
   background-color: unset;
   margin-bottom: 2.5rem;
   height: ${props => sizes[props.size].height};
   width: ${props => sizes[props.size].width};
-  color: ${theme.colors.main.secondary};
+  color: ${Theme.colors.main.secondary};
   font-family: SpaceGrotesk-Regular;
   font-size: 14px;
   padding-left: .5rem;
