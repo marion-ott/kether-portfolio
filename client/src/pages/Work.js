@@ -6,6 +6,7 @@ import theme from "../theme";
 import img from "../elite-squad.png";
 import prev from "../preview.png";
 import Typography from "../components/atoms/typography";
+import TitleGroup from "../components/molecules/card/TitleGroup";
 
 
 function workHeader(name, company, skills, softwares) {
@@ -17,11 +18,7 @@ function workHeader(name, company, skills, softwares) {
 
       <div style={{ height: "500px", width: "500px", zIndex: "1" }}>
 
-        <div style={{ width: "100%", height: "250px" }}>
-          <Typography size="h1">{name}</Typography>
-          <Typography size="label">{company}</Typography>
-        </div>
-
+        <TitleGroup title={name} titleSize="h1" subtitle={company} />
 
         <div style={{ display: "flex", height: "250px" }}>
           <div style={{ width: "50%", height: "250px" }}>

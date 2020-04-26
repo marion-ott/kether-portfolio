@@ -5,6 +5,7 @@ import React from "react";
 import Typography from "../components/atoms/typography";
 import theme from "../theme";
 import Nav from "../components/organisms/nav";
+import AboutTab from "../components/molecules/about/Tab";
 
 const me = [
   {
@@ -33,23 +34,10 @@ const me = [
   },
 ]
 
-function Tab({ date, name, place }) {
-  return (
-    <>
-      <div style={{ marginBottom: "1rem", cursor: "pointer" }}>
-        <Typography size="body">{date}</Typography>
-        <Typography size="h4">{name}</Typography>
-        <Typography size="h4">- {place}</Typography>
-      </div>
-    </>
-  )
-}
-
 function Tabs({ type }) {
-  console.log(me)
   return (
     <>
-      {me.filter((e) => e.type === type).map(({ date, name, place }) => <Tab date={date} name={name} place={place} />)}
+      {me.filter((e) => e.type === type).map(({ date, name, place }) => <AboutTab isActive={false} type={type} date={date} name={name} place={place} />)}
     </>
   )
 }
@@ -78,7 +66,7 @@ function About() {
       <Nav isHome={false} />
       <section style={{ backgroundColor: theme.colors.main.primary, minHeight: "100vh", padding: "0px 150px" }}>
 
-        <Typography size="h1">Want to know more about me ?</Typography>
+        <Typography width={800} margin size="h1">Want to know more about me ?</Typography>
 
         {/* bottom */}
         <div style={{ display: "flex" }}>
