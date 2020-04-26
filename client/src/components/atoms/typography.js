@@ -79,7 +79,7 @@ const StyledTypography = styled.p`
     font-family: ${props => sizes[props.size].fontFamily};
     margin-bottom: ${props => props.margin ? ".75rem" : ""};
     width: ${props => `${props.width}px`};
-    opacity: ${props => props.isActive? "1" : ".5"};
+    opacity: ${props => props.isActive ? "1" : ".5"};
 `;
 
 const Typography = ({ isActive, width, size, color, children, testid, margin }) => {

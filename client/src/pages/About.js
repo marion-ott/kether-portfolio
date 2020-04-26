@@ -1,7 +1,7 @@
 //TODO : use styled components rather than inline crappy style.
 // TODO : use api
 
-import React from "react";
+import React from 'react';
 import Typography from "../components/atoms/typography";
 import Theme from "../Theme";
 import Nav from "../components/organisms/nav";
