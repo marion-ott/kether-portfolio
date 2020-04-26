@@ -41,8 +41,11 @@ const StyledNavbutton = styled.div`
     justify-content: center;
     align-items: center;
     min-width: 180px;
+    width: 180px;
     min-height: 100px;
+    height: 100px;
     cursor: pointer;
+    box-sizing: border-box;
 `;
 
 const NavButton = ({ position, children }) => {
