@@ -8,3 +8,14 @@
 ###### SAHBI	Florian
 ###### TRAVAILLÉ	Hector
 ###### ZEROUAL	Mahel
+
+
+### Installation
+
+$ cd server
+$ yarn install
+$ yarn start
+
+$ cd client
+$ yarn install
+$ yarn start
