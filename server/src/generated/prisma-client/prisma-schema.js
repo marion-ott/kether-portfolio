@@ -3,7 +3,11 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateWork {
+/* GraphQL */ `type AggregateUser {
+  count: Int!
+}
+
+type AggregateWork {
   count: Int!
 }
 
@@ -14,6 +18,12 @@ type BatchPayload {
 scalar Long
 
 type Mutation {
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
   createWork(data: WorkCreateInput!): Work!
   updateWork(data: WorkUpdateInput!, where: WorkWhereUniqueInput!): Work
   updateManyWorks(data: WorkUpdateManyMutationInput!, where: WorkWhereInput): BatchPayload!
@@ -40,6 +50,9 @@ type PageInfo {
 }
 
 type Query {
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   work(where: WorkWhereUniqueInput!): Work
   works(where: WorkWhereInput, orderBy: WorkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Work]!
   worksConnection(where: WorkWhereInput, orderBy: WorkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): WorkConnection!
@@ -47,7 +60,246 @@ type Query {
 }
 
 type Subscription {
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   work(where: WorkSubscriptionWhereInput): WorkSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+  works(where: WorkWhereInput, orderBy: WorkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Work!]
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+  works: WorkCreateManyInput
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  firstName_ASC
+  firstName_DESC
+  lastName_ASC
+  lastName_DESC
+  email_ASC
+  email_DESC
+  phone_ASC
+  phone_DESC
+  address_ASC
+  address_DESC
+  city_ASC
+  city_DESC
+  zipCode_ASC
+  zipCode_DESC
+  bio_ASC
+  bio_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  firstName: String
+  lastName: String
+  email: String
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+  works: WorkUpdateManyInput
+}
+
+input UserUpdateManyMutationInput {
+  firstName: String
+  lastName: String
+  email: String
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  firstName: String
+  firstName_not: String
+  firstName_in: [String!]
+  firstName_not_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_contains: String
+  firstName_not_contains: String
+  firstName_starts_with: String
+  firstName_not_starts_with: String
+  firstName_ends_with: String
+  firstName_not_ends_with: String
+  lastName: String
+  lastName_not: String
+  lastName_in: [String!]
+  lastName_not_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_contains: String
+  lastName_not_contains: String
+  lastName_starts_with: String
+  lastName_not_starts_with: String
+  lastName_ends_with: String
+  lastName_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  phone: Int
+  phone_not: Int
+  phone_in: [Int!]
+  phone_not_in: [Int!]
+  phone_lt: Int
+  phone_lte: Int
+  phone_gt: Int
+  phone_gte: Int
+  address: String
+  address_not: String
+  address_in: [String!]
+  address_not_in: [String!]
+  address_lt: String
+  address_lte: String
+  address_gt: String
+  address_gte: String
+  address_contains: String
+  address_not_contains: String
+  address_starts_with: String
+  address_not_starts_with: String
+  address_ends_with: String
+  address_not_ends_with: String
+  city: String
+  city_not: String
+  city_in: [String!]
+  city_not_in: [String!]
+  city_lt: String
+  city_lte: String
+  city_gt: String
+  city_gte: String
+  city_contains: String
+  city_not_contains: String
+  city_starts_with: String
+  city_not_starts_with: String
+  city_ends_with: String
+  city_not_ends_with: String
+  zipCode: Int
+  zipCode_not: Int
+  zipCode_in: [Int!]
+  zipCode_not_in: [Int!]
+  zipCode_lt: Int
+  zipCode_lte: Int
+  zipCode_gt: Int
+  zipCode_gte: Int
+  bio: String
+  bio_not: String
+  bio_in: [String!]
+  bio_not_in: [String!]
+  bio_lt: String
+  bio_lte: String
+  bio_gt: String
+  bio_gte: String
+  bio_contains: String
+  bio_not_contains: String
+  bio_starts_with: String
+  bio_not_starts_with: String
+  bio_ends_with: String
+  bio_not_ends_with: String
+  works_every: WorkWhereInput
+  works_some: WorkWhereInput
+  works_none: WorkWhereInput
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
 }
 
 type Work {
@@ -66,6 +318,11 @@ input WorkCreateInput {
   name: String!
 }
 
+input WorkCreateManyInput {
+  create: [WorkCreateInput!]
+  connect: [WorkWhereUniqueInput!]
+}
+
 type WorkEdge {
   node: Work!
   cursor: String!
@@ -81,6 +338,40 @@ enum WorkOrderByInput {
 type WorkPreviousValues {
   id: ID!
   name: String!
+}
+
+input WorkScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [WorkScalarWhereInput!]
+  OR: [WorkScalarWhereInput!]
+  NOT: [WorkScalarWhereInput!]
 }
 
 type WorkSubscriptionPayload {
@@ -101,12 +392,48 @@ input WorkSubscriptionWhereInput {
   NOT: [WorkSubscriptionWhereInput!]
 }
 
+input WorkUpdateDataInput {
+  name: String
+}
+
 input WorkUpdateInput {
   name: String
 }
 
+input WorkUpdateManyDataInput {
+  name: String
+}
+
+input WorkUpdateManyInput {
+  create: [WorkCreateInput!]
+  update: [WorkUpdateWithWhereUniqueNestedInput!]
+  upsert: [WorkUpsertWithWhereUniqueNestedInput!]
+  delete: [WorkWhereUniqueInput!]
+  connect: [WorkWhereUniqueInput!]
+  set: [WorkWhereUniqueInput!]
+  disconnect: [WorkWhereUniqueInput!]
+  deleteMany: [WorkScalarWhereInput!]
+  updateMany: [WorkUpdateManyWithWhereNestedInput!]
+}
+
 input WorkUpdateManyMutationInput {
   name: String
+}
+
+input WorkUpdateManyWithWhereNestedInput {
+  where: WorkScalarWhereInput!
+  data: WorkUpdateManyDataInput!
+}
+
+input WorkUpdateWithWhereUniqueNestedInput {
+  where: WorkWhereUniqueInput!
+  data: WorkUpdateDataInput!
+}
+
+input WorkUpsertWithWhereUniqueNestedInput {
+  where: WorkWhereUniqueInput!
+  update: WorkUpdateDataInput!
+  create: WorkCreateInput!
 }
 
 input WorkWhereInput {

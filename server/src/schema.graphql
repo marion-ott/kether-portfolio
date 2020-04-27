@@ -1,12 +1,51 @@
 type Query {
+  users: [User!]!
+  user(id: ID!): User!
   works: [Work!]!
 }
 
 type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: CreateUserInput!): User!
+  deleteUser(id: ID!): User!
   createWork(name: String!): Work!
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+  works: [Work!]!
 }
 
 type Work {
   id: ID!
   name: String!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
 }
