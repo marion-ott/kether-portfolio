@@ -1,6 +1,9 @@
 const Query = {
-  works(parent, args, context) {
-    return context.prisma.works()
+  works(parent, args, { prisma }) {
+    return prisma.works()
+  },
+  work(parent, { id }, { prisma }) {
+    return prisma.work({ id })
   }
 }
 
