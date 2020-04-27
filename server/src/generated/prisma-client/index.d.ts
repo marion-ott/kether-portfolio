@@ -160,7 +160,6 @@ export type UserOrderByInput =
   | "bio_ASC"
   | "bio_DESC";
 
-<<<<<<< HEAD
 export type WorkOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -168,9 +167,6 @@ export type WorkOrderByInput =
   | "title_DESC"
   | "description_ASC"
   | "description_DESC";
-=======
-export type WorkOrderByInput = "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC";
->>>>>>> feature(user): add type & resolvers for user setup
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -391,12 +387,8 @@ export type WorkWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface WorkUpdateManyMutationInput {
-<<<<<<< HEAD
   title?: Maybe<String>;
   description?: Maybe<String>;
-=======
-  name?: Maybe<String>;
->>>>>>> feature(user): add type & resolvers for user setup
 }
 
 export interface UserUpdateManyMutationInput {
@@ -422,12 +414,8 @@ export interface WorkSubscriptionWhereInput {
 }
 
 export interface WorkUpdateInput {
-<<<<<<< HEAD
   title?: Maybe<String>;
   description?: Maybe<String>;
-=======
-  name?: Maybe<String>;
->>>>>>> feature(user): add type & resolvers for user setup
 }
 
 export interface NodeNode {
