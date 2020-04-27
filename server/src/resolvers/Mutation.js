@@ -8,7 +8,7 @@ const Mutation = {
     return user
   },
   async deleteUser(parent, { id }, { prisma }) {
-    const user = await prisma.deleteUser({ where: { id } })
+    const user = await prisma.deleteUser({ id })
     return args
   },
   async createWork(parent, { input }, { prisma }) {

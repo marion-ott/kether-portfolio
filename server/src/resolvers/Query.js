@@ -1,4 +1,10 @@
 const Query = {
+  users(parent, args, { prisma }) {
+    return prisma.users()
+  },
+  user(parent, { id }, { prisma }) {
+    return prisma.user({ id })
+  },
   works(parent, args, { prisma }) {
     return prisma.works()
   },
