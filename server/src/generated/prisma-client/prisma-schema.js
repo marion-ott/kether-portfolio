@@ -74,6 +74,7 @@ type User {
   city: String
   zipCode: Int
   bio: String
+  works(where: WorkWhereInput, orderBy: WorkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Work!]
 }
 
 type UserConnection {
@@ -92,6 +93,7 @@ input UserCreateInput {
   city: String
   zipCode: Int
   bio: String
+  works: WorkCreateManyInput
 }
 
 type UserEdge {
@@ -159,6 +161,7 @@ input UserUpdateInput {
   city: String
   zipCode: Int
   bio: String
+  works: WorkUpdateManyInput
 }
 
 input UserUpdateManyMutationInput {
@@ -287,6 +290,9 @@ input UserWhereInput {
   bio_not_starts_with: String
   bio_ends_with: String
   bio_not_ends_with: String
+  works_every: WorkWhereInput
+  works_some: WorkWhereInput
+  works_none: WorkWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
@@ -312,6 +318,11 @@ input WorkCreateInput {
   name: String!
 }
 
+input WorkCreateManyInput {
+  create: [WorkCreateInput!]
+  connect: [WorkWhereUniqueInput!]
+}
+
 type WorkEdge {
   node: Work!
   cursor: String!
@@ -327,6 +338,40 @@ enum WorkOrderByInput {
 type WorkPreviousValues {
   id: ID!
   name: String!
+}
+
+input WorkScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [WorkScalarWhereInput!]
+  OR: [WorkScalarWhereInput!]
+  NOT: [WorkScalarWhereInput!]
 }
 
 type WorkSubscriptionPayload {
@@ -347,12 +392,48 @@ input WorkSubscriptionWhereInput {
   NOT: [WorkSubscriptionWhereInput!]
 }
 
+input WorkUpdateDataInput {
+  name: String
+}
+
 input WorkUpdateInput {
   name: String
 }
 
+input WorkUpdateManyDataInput {
+  name: String
+}
+
+input WorkUpdateManyInput {
+  create: [WorkCreateInput!]
+  update: [WorkUpdateWithWhereUniqueNestedInput!]
+  upsert: [WorkUpsertWithWhereUniqueNestedInput!]
+  delete: [WorkWhereUniqueInput!]
+  connect: [WorkWhereUniqueInput!]
+  set: [WorkWhereUniqueInput!]
+  disconnect: [WorkWhereUniqueInput!]
+  deleteMany: [WorkScalarWhereInput!]
+  updateMany: [WorkUpdateManyWithWhereNestedInput!]
+}
+
 input WorkUpdateManyMutationInput {
   name: String
+}
+
+input WorkUpdateManyWithWhereNestedInput {
+  where: WorkScalarWhereInput!
+  data: WorkUpdateManyDataInput!
+}
+
+input WorkUpdateWithWhereUniqueNestedInput {
+  where: WorkWhereUniqueInput!
+  data: WorkUpdateDataInput!
+}
+
+input WorkUpsertWithWhereUniqueNestedInput {
+  where: WorkWhereUniqueInput!
+  update: WorkUpdateDataInput!
+  create: WorkCreateInput!
 }
 
 input WorkWhereInput {
