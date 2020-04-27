@@ -12,6 +12,7 @@
 
 ### Installation
 
+```shell
 $ cd server
 $ yarn install
 $ yarn start
