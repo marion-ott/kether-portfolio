@@ -9,6 +9,7 @@ type Mutation {
   createUser(input: CreateUserInput!): User!
   updateUser(id: ID!, input: CreateUserInput!): User!
   deleteUser(id: ID!): User!
+<<<<<<< HEAD
   createWork(input: CreateWorkInput!): Work!
   updateWork(id: ID!, input: CreateWorkInput!): Work!
   deleteWork(id: ID!): Work!
@@ -24,6 +25,22 @@ type User {
   city: String
   zipCode: Int
   bio: String
+=======
+  createWork(name: String!): Work!
+>>>>>>> feature(user): add type & resolvers for user setup
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+  works: [Work!]!
 }
 
 type Work {
@@ -61,4 +78,25 @@ input CreateWorkInput {
 input UpdateWorkInput {
   title: String
   description: String
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
 }

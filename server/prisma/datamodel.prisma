@@ -8,6 +8,10 @@ type User {
   city: String
   zipCode: Int
   bio: String
+<<<<<<< HEAD
+=======
+  works: [Work!]!
+>>>>>>> feature(user): add type & resolvers for user setup
 }
 
 type Work {
