@@ -71,6 +71,8 @@ input UpdateWorkInput {
   title: String
   organization: String
   description: String
+  skills: WorkCreateSkillsInput
+  softwares: WorkCreateSoftwaresInput
 }
 
 input WorkCreateSkillsInput {
