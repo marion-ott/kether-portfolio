@@ -87,16 +87,3 @@ enum Role {
   ADMIN
   USER
 }
-
-input WorkCreateSkillsInput {
-  set: [String!]
-}
-
-input WorkCreateSoftwaresInput {
-  set: [String!]
-}
-
-enum Role {
-  ADMIN
-  USER
-}
