@@ -4,7 +4,7 @@ const Mutation = {
     return user
   },
   async updateUser(parent, { id, input }, { prisma }) {
-    const user = await prisma.updateUser({ input, where: { id } })
+    const user = await prisma.updateUser({ data: input, where: { id } })
     return user
   },
   async deleteUser(parent, { id }, { prisma }) {
@@ -16,7 +16,7 @@ const Mutation = {
     return work
   },
   async updateWork(parent, { id, input }, { prisma }) {
-    const work = await prisma.updateWork({ input, where: { id } })
+    const work = await prisma.updateWork({ data: input, where: { id } })
     return work
   },
   async deleteWork(parent, { id }, { prisma }) {

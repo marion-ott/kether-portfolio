@@ -7,10 +7,10 @@ type Query {
 
 type Mutation {
   createUser(input: CreateUserInput!): User!
-  updateUser(id: ID!, input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
   deleteUser(id: ID!): User!
   createWork(input: CreateWorkInput!): Work!
-  updateWork(id: ID!, input: CreateWorkInput!): Work!
+  updateWork(id: ID!, input: UpdateWorkInput!): Work!
   deleteWork(id: ID!): Work!
 }
 
