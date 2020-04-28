@@ -16,6 +16,7 @@ type Mutation {
 
 type User {
   id: ID!
+  role: Role!
   firstName: String!
   lastName: String!
   email: String!
@@ -29,10 +30,14 @@ type User {
 type Work {
   id: ID!
   title: String!
-  description: String!
+  organization: String!
+  description: String
+  skills: [String!]!
+  softwares: [String!]!
 }
 
 input CreateUserInput {
+  role: Role!
   firstName: String!
   lastName: String!
   email: String!
@@ -44,6 +49,7 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
+  role: Role
   firstName: String
   lastName: String
   email: String
@@ -55,10 +61,27 @@ input UpdateUserInput {
 
 input CreateWorkInput {
   title: String!
-  description: String!
+  organization: String!
+  description: String
+  skills: WorkCreateSkillsInput!
+  softwares: WorkCreateSoftwaresInput!
 }
 
 input UpdateWorkInput {
   title: String
+  organization: String
   description: String
+}
+
+input WorkCreateSkillsInput {
+  set: [String!]
+}
+
+input WorkCreateSoftwaresInput {
+  set: [String!]
+}
+
+enum Role {
+  ADMIN
+  USER
 }
