@@ -170,7 +170,11 @@ export type WorkOrderByInput =
   | "organization_ASC"
   | "organization_DESC"
   | "description_ASC"
-  | "description_DESC";
+  | "description_DESC"
+  | "url_ASC"
+  | "url_DESC"
+  | "image_ASC"
+  | "image_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -180,6 +184,8 @@ export interface WorkUpdateInput {
   title?: Maybe<String>;
   organization?: Maybe<String>;
   description?: Maybe<String>;
+  url?: Maybe<String>;
+  image?: Maybe<String>;
   skills?: Maybe<WorkUpdateskillsInput>;
   softwares?: Maybe<WorkUpdatesoftwaresInput>;
 }
@@ -262,6 +268,34 @@ export interface WorkWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
+  url?: Maybe<String>;
+  url_not?: Maybe<String>;
+  url_in?: Maybe<String[] | String>;
+  url_not_in?: Maybe<String[] | String>;
+  url_lt?: Maybe<String>;
+  url_lte?: Maybe<String>;
+  url_gt?: Maybe<String>;
+  url_gte?: Maybe<String>;
+  url_contains?: Maybe<String>;
+  url_not_contains?: Maybe<String>;
+  url_starts_with?: Maybe<String>;
+  url_not_starts_with?: Maybe<String>;
+  url_ends_with?: Maybe<String>;
+  url_not_ends_with?: Maybe<String>;
+  image?: Maybe<String>;
+  image_not?: Maybe<String>;
+  image_in?: Maybe<String[] | String>;
+  image_not_in?: Maybe<String[] | String>;
+  image_lt?: Maybe<String>;
+  image_lte?: Maybe<String>;
+  image_gt?: Maybe<String>;
+  image_gte?: Maybe<String>;
+  image_contains?: Maybe<String>;
+  image_not_contains?: Maybe<String>;
+  image_starts_with?: Maybe<String>;
+  image_not_starts_with?: Maybe<String>;
+  image_ends_with?: Maybe<String>;
+  image_not_ends_with?: Maybe<String>;
   AND?: Maybe<WorkWhereInput[] | WorkWhereInput>;
   OR?: Maybe<WorkWhereInput[] | WorkWhereInput>;
   NOT?: Maybe<WorkWhereInput[] | WorkWhereInput>;
@@ -424,6 +458,8 @@ export interface WorkCreateInput {
   title: String;
   organization: String;
   description?: Maybe<String>;
+  url?: Maybe<String>;
+  image?: Maybe<String>;
   skills?: Maybe<WorkCreateskillsInput>;
   softwares?: Maybe<WorkCreatesoftwaresInput>;
 }
@@ -447,6 +483,8 @@ export interface WorkUpdateManyMutationInput {
   title?: Maybe<String>;
   organization?: Maybe<String>;
   description?: Maybe<String>;
+  url?: Maybe<String>;
+  image?: Maybe<String>;
   skills?: Maybe<WorkUpdateskillsInput>;
   softwares?: Maybe<WorkUpdatesoftwaresInput>;
 }
@@ -537,6 +575,8 @@ export interface WorkPreviousValues {
   title: String;
   organization: String;
   description?: String;
+  url?: String;
+  image?: String;
   skills: String[];
   softwares: String[];
 }
@@ -548,6 +588,8 @@ export interface WorkPreviousValuesPromise
   title: () => Promise<String>;
   organization: () => Promise<String>;
   description: () => Promise<String>;
+  url: () => Promise<String>;
+  image: () => Promise<String>;
   skills: () => Promise<String[]>;
   softwares: () => Promise<String[]>;
 }
@@ -559,6 +601,8 @@ export interface WorkPreviousValuesSubscription
   title: () => Promise<AsyncIterator<String>>;
   organization: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  image: () => Promise<AsyncIterator<String>>;
   skills: () => Promise<AsyncIterator<String[]>>;
   softwares: () => Promise<AsyncIterator<String[]>>;
 }
@@ -785,6 +829,8 @@ export interface Work {
   title: String;
   organization: String;
   description?: String;
+  url?: String;
+  image?: String;
   skills: String[];
   softwares: String[];
 }
@@ -794,6 +840,8 @@ export interface WorkPromise extends Promise<Work>, Fragmentable {
   title: () => Promise<String>;
   organization: () => Promise<String>;
   description: () => Promise<String>;
+  url: () => Promise<String>;
+  image: () => Promise<String>;
   skills: () => Promise<String[]>;
   softwares: () => Promise<String[]>;
 }
@@ -805,6 +853,8 @@ export interface WorkSubscription
   title: () => Promise<AsyncIterator<String>>;
   organization: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  image: () => Promise<AsyncIterator<String>>;
   skills: () => Promise<AsyncIterator<String[]>>;
   softwares: () => Promise<AsyncIterator<String[]>>;
 }
@@ -816,6 +866,8 @@ export interface WorkNullablePromise
   title: () => Promise<String>;
   organization: () => Promise<String>;
   description: () => Promise<String>;
+  url: () => Promise<String>;
+  image: () => Promise<String>;
   skills: () => Promise<String[]>;
   softwares: () => Promise<String[]>;
 }

@@ -317,6 +317,8 @@ type Work {
   title: String!
   organization: String!
   description: String
+  url: String
+  image: String
   skills: [String!]!
   softwares: [String!]!
 }
@@ -332,6 +334,8 @@ input WorkCreateInput {
   title: String!
   organization: String!
   description: String
+  url: String
+  image: String
   skills: WorkCreateskillsInput
   softwares: WorkCreatesoftwaresInput
 }
@@ -358,6 +362,10 @@ enum WorkOrderByInput {
   organization_DESC
   description_ASC
   description_DESC
+  url_ASC
+  url_DESC
+  image_ASC
+  image_DESC
 }
 
 type WorkPreviousValues {
@@ -365,6 +373,8 @@ type WorkPreviousValues {
   title: String!
   organization: String!
   description: String
+  url: String
+  image: String
   skills: [String!]!
   softwares: [String!]!
 }
@@ -391,6 +401,8 @@ input WorkUpdateInput {
   title: String
   organization: String
   description: String
+  url: String
+  image: String
   skills: WorkUpdateskillsInput
   softwares: WorkUpdatesoftwaresInput
 }
@@ -399,6 +411,8 @@ input WorkUpdateManyMutationInput {
   title: String
   organization: String
   description: String
+  url: String
+  image: String
   skills: WorkUpdateskillsInput
   softwares: WorkUpdatesoftwaresInput
 }
@@ -468,6 +482,34 @@ input WorkWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  image: String
+  image_not: String
+  image_in: [String!]
+  image_not_in: [String!]
+  image_lt: String
+  image_lte: String
+  image_gt: String
+  image_gte: String
+  image_contains: String
+  image_not_contains: String
+  image_starts_with: String
+  image_not_starts_with: String
+  image_ends_with: String
+  image_not_ends_with: String
   AND: [WorkWhereInput!]
   OR: [WorkWhereInput!]
   NOT: [WorkWhereInput!]

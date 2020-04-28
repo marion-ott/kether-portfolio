@@ -32,6 +32,8 @@ type Work {
   title: String!
   organization: String!
   description: String
+  url: String
+  image: String
   skills: [String!]!
   softwares: [String!]!
 }
@@ -63,6 +65,8 @@ input CreateWorkInput {
   title: String!
   organization: String!
   description: String
+  url: String
+  image: String
   skills: WorkCreateSkillsInput!
   softwares: WorkCreateSoftwaresInput!
 }
@@ -71,6 +75,8 @@ input UpdateWorkInput {
   title: String
   organization: String
   description: String
+  url: String
+  image: String
   skills: WorkCreateSkillsInput
   softwares: WorkCreateSoftwaresInput
 }
