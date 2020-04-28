@@ -59,6 +59,11 @@ type Query {
   node(id: ID!): Node
 }
 
+enum Role {
+  ADMIN
+  USER
+}
+
 type Subscription {
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   work(where: WorkSubscriptionWhereInput): WorkSubscriptionPayload
@@ -66,6 +71,7 @@ type Subscription {
 
 type User {
   id: ID!
+  role: Role!
   firstName: String!
   lastName: String!
   email: String!
@@ -84,6 +90,7 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
+  role: Role!
   firstName: String!
   lastName: String!
   email: String!
@@ -102,6 +109,8 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
+  role_ASC
+  role_DESC
   firstName_ASC
   firstName_DESC
   lastName_ASC
@@ -122,6 +131,7 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
+  role: Role!
   firstName: String!
   lastName: String!
   email: String!
@@ -151,6 +161,7 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
+  role: Role
   firstName: String
   lastName: String
   email: String
@@ -162,6 +173,7 @@ input UserUpdateInput {
 }
 
 input UserUpdateManyMutationInput {
+  role: Role
   firstName: String
   lastName: String
   email: String
@@ -187,6 +199,10 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
   firstName: String
   firstName_not: String
   firstName_in: [String!]
@@ -299,7 +315,10 @@ input UserWhereUniqueInput {
 type Work {
   id: ID!
   title: String!
-  description: String!
+  organization: String!
+  description: String
+  skills: [String!]!
+  softwares: [String!]!
 }
 
 type WorkConnection {
@@ -311,7 +330,18 @@ type WorkConnection {
 input WorkCreateInput {
   id: ID
   title: String!
-  description: String!
+  organization: String!
+  description: String
+  skills: WorkCreateskillsInput
+  softwares: WorkCreatesoftwaresInput
+}
+
+input WorkCreateskillsInput {
+  set: [String!]
+}
+
+input WorkCreatesoftwaresInput {
+  set: [String!]
 }
 
 type WorkEdge {
@@ -324,6 +354,8 @@ enum WorkOrderByInput {
   id_DESC
   title_ASC
   title_DESC
+  organization_ASC
+  organization_DESC
   description_ASC
   description_DESC
 }
@@ -331,7 +363,10 @@ enum WorkOrderByInput {
 type WorkPreviousValues {
   id: ID!
   title: String!
-  description: String!
+  organization: String!
+  description: String
+  skills: [String!]!
+  softwares: [String!]!
 }
 
 type WorkSubscriptionPayload {
@@ -354,12 +389,26 @@ input WorkSubscriptionWhereInput {
 
 input WorkUpdateInput {
   title: String
+  organization: String
   description: String
+  skills: WorkUpdateskillsInput
+  softwares: WorkUpdatesoftwaresInput
 }
 
 input WorkUpdateManyMutationInput {
   title: String
+  organization: String
   description: String
+  skills: WorkUpdateskillsInput
+  softwares: WorkUpdatesoftwaresInput
+}
+
+input WorkUpdateskillsInput {
+  set: [String!]
+}
+
+input WorkUpdatesoftwaresInput {
+  set: [String!]
 }
 
 input WorkWhereInput {
@@ -391,6 +440,20 @@ input WorkWhereInput {
   title_not_starts_with: String
   title_ends_with: String
   title_not_ends_with: String
+  organization: String
+  organization_not: String
+  organization_in: [String!]
+  organization_not_in: [String!]
+  organization_lt: String
+  organization_lte: String
+  organization_gt: String
+  organization_gte: String
+  organization_contains: String
+  organization_not_contains: String
+  organization_starts_with: String
+  organization_not_starts_with: String
+  organization_ends_with: String
+  organization_not_ends_with: String
   description: String
   description_not: String
   description_in: [String!]

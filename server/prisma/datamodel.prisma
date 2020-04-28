@@ -1,5 +1,6 @@
 type User {
   id: ID! @id
+  role: Role!
   firstName: String!
   lastName: String!
   email: String!
@@ -13,5 +14,13 @@ type User {
 type Work {
   id: ID! @id
   title: String!
-  description: String!
+  organization: String!
+  description: String
+  skills: [String!]! @scalarList(strategy: RELATION)
+  softwares: [String!]! @scalarList(strategy: RELATION)
+}
+
+enum Role {
+  ADMIN
+  USER
 }

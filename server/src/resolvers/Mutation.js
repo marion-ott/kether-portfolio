@@ -9,7 +9,7 @@ const Mutation = {
   },
   async deleteUser(parent, { id }, { prisma }) {
     const user = await prisma.deleteUser({ id })
-    return args
+    return user
   },
   async createWork(parent, { input }, { prisma }) {
     const work = await prisma.createWork(input)
