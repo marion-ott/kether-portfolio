@@ -1,6 +1,5 @@
 //TODO : use styled components rather than inline crappy style.
 import React from "react";
-import styled from "styled-components";
 import Typography from "../components/atoms/typography";
 import Theme from "../Theme";
 

@@ -112,6 +112,11 @@ function Work() {
     variables: { id: projectId },
   });
 
+  if (error) {
+    console.warn(error);
+    return <p>error</p>;
+  }
+
   if (loading) {
     return <p>loading</p>;
   }

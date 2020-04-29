@@ -30,6 +30,11 @@ function Contact() {
     console.log(data);
   };
 
+  if (error) {
+    console.warn(error);
+    return <p>error</p>;
+  }
+
   if (loading) {
     return <p>loading</p>;
   }

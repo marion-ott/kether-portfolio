@@ -49,6 +49,11 @@ function About() {
   const id = "ck9k9jr9n7uoo0923a1mojesl";
   const { loading, error, data } = useQuery(GET_USER, { variables: { id } });
 
+  if (error) {
+    console.warn(error);
+    return <p>error</p>;
+  }
+
   if (loading) {
     return <p>loading</p>;
   }
