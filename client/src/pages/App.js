@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Work from "./Work";
 import About from "./About";
@@ -20,7 +16,7 @@ function App() {
         <Route path="/works">
           <Works />
         </Route>
-        <Route path="/work/:projectName">
+        <Route path="/work/:projectId">
           <Work />
         </Route>
         <Route path="/contact">

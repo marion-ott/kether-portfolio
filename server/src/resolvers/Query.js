@@ -1,4 +1,7 @@
 const Query = {
+  me(parent, args, { prisma }) {
+    return prisma.user({ id: 'ck9k9jr9n7uoo0923a1mojesl' })
+  },
   users(parent, args, { prisma }) {
     return prisma.users()
   },

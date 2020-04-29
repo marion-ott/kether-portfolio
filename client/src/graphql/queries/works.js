@@ -1,11 +1,14 @@
 import gql from "graphql-tag";
 
 export const GET_WORK = gql`
-  query GetWork($id: ID!) {
-    work(id: $id) {
+  query Work($id: ID!) {
+    work(where: { id: $id }) {
       id
       title
+      organization
       description
+      skills
+      softwares
     }
   }
 `;
@@ -15,7 +18,6 @@ export const GET_WORKS = gql`
     works {
       id
       title
-      description
     }
   }
 `;
