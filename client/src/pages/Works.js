@@ -24,6 +24,10 @@ function CardComp({ name, place, link }) {
 
 function Works() {
   const { loading, error, data } = useQuery(GET_WORKS);
+  console.log(data);
+  if (loading) {
+    return <p>loading</p>;
+  }
 
   return (
     <>
@@ -38,13 +42,14 @@ function Works() {
           justifyContent: "space-around",
         }}
       >
-        <CardComp
-          name="Tom Clancy’s EliteSquad"
-          place="Ubisoft"
-          link="elite-squad"
-        />
-        <CardComp name="Hungry Sharks" place="Ubisoft" link="hungry-sharks" />
-        <CardComp name="Xenos" place="Hetic" link="xenos" />
+        {data.works.map((work) => (
+          <CardComp
+            key={work.id}
+            name={work.title}
+            place={work.organization}
+            link="elite-squad"
+          />
+        ))}
       </section>
     </>
   );
