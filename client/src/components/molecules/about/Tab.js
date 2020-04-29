@@ -7,16 +7,43 @@ const StyledTab = Styled.div`
   cursor: pointer;
 `;
 
-function AboutTab({ isActive, type, date, name, place }) {
+const months = [
+  "Janvier",
+  "Février",
+  "Mars",
+  "Avril",
+  "Mai",
+  "Juin",
+  "Juillet",
+  "Août",
+  "Septembre",
+  "Octobre",
+  "Novembre",
+  "Décembre",
+];
+
+function AboutTab({ isActive, category, startDate, endDate, role, company }) {
+  const [start, end] = [new Date(startDate), new Date(endDate)];
   return (
     <StyledTab>
-      {type === "work"
-        ? <Typography isActive={isActive} color="blue" size="body">{date}</Typography>
-        : <Typography isActive={isActive} color="yellow" size="body">{date}</Typography>}
-      <Typography isActive={isActive} size="h4">{name}</Typography>
-      <Typography isActive={isActive} size="h4">- {place}</Typography>
+      <Typography
+        isActive={isActive}
+        color={category === "JOB" ? "blue" : "yellow"}
+        size="body"
+      >
+        {`${months[start.getMonth()]} ${start.getFullYear()}
+          -
+          ${months[end.getMonth()]} ${end.getFullYear()}
+        `}
+      </Typography>
+      <Typography isActive={isActive} size="h4">
+        {role}
+      </Typography>
+      <Typography isActive={isActive} size="h4">
+        - {company}
+      </Typography>
     </StyledTab>
-  )
+  );
 }
 
 export default AboutTab;

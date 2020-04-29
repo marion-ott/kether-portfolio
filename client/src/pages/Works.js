@@ -24,7 +24,6 @@ function CardComp({ name, place, link }) {
 
 function Works() {
   const { loading, error, data } = useQuery(GET_WORKS);
-  console.log(data);
   if (loading) {
     return <p>loading</p>;
   }
@@ -47,7 +46,7 @@ function Works() {
             key={work.id}
             name={work.title}
             place={work.organization}
-            link="elite-squad"
+            link={work.id}
           />
         ))}
       </section>

@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const GET_USER = gql`
-  query GetUser({$id: ID!}) {
-    user(id: $id) {
+  query User($id: ID!) {
+    user(where: { id: $id }) {
       id
       firstName
       lastName
@@ -12,6 +12,14 @@ export const GET_USER = gql`
       city
       zipCode
       bio
+      experiences {
+        id
+        category
+        role
+        startDate
+        endDate
+        company
+      }
     }
   }
 `;
@@ -28,6 +36,14 @@ export const GET_USERS = gql`
       city
       zipCode
       bio
+      experiences {
+        id
+        category
+        role
+        startDate
+        endDate
+        company
+      }
     }
   }
 `;
