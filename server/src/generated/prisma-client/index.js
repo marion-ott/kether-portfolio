@@ -13,7 +13,15 @@ var models = [
     embedded: false
   },
   {
+    name: "Experience",
+    embedded: false
+  },
+  {
     name: "Role",
+    embedded: false
+  },
+  {
+    name: "Category",
     embedded: false
   }
 ];

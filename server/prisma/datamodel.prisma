@@ -9,6 +9,7 @@ type User {
   city: String
   zipCode: Int
   bio: String
+  experiences: [Experience!]
 }
 
 type Work {
@@ -22,7 +23,22 @@ type Work {
   softwares: [String!]! @scalarList(strategy: RELATION)
 }
 
+type Experience {
+  id: ID! @id
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String
+  company: String!
+  user: User!
+}
+
 enum Role {
   ADMIN
   USER
+}
+
+enum Category {
+  EDUCATION
+  JOB
 }

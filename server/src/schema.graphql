@@ -1,8 +1,12 @@
+scalar DateTime
+
 type Query {
   users: [User!]!
   user(id: ID!): User!
   works: [Work!]!
   work(id: ID!): Work!
+  experiences: [Experience!]!
+  experience(id: ID!): Experience!
 }
 
 type Mutation {
@@ -12,6 +16,9 @@ type Mutation {
   createWork(input: CreateWorkInput!): Work!
   updateWork(id: ID!, input: UpdateWorkInput!): Work!
   deleteWork(id: ID!): Work!
+  createExperience(input: CreateExperienceInput!): Experience!
+  updateExperience(id: ID!, input: UpdateExperienceInput!): Experience!
+  deleteExperience(id: ID!): Experience!
 }
 
 type User {
@@ -25,6 +32,7 @@ type User {
   city: String
   zipCode: Int
   bio: String
+  experiences: [Experience!]
 }
 
 type Work {
@@ -36,6 +44,16 @@ type Work {
   image: String
   skills: [String!]!
   softwares: [String!]!
+}
+
+type Experience {
+  id: ID!
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String!
+  company: String!
+  user: User!
 }
 
 input CreateUserInput {
@@ -81,6 +99,24 @@ input UpdateWorkInput {
   softwares: WorkCreateSoftwaresInput
 }
 
+input CreateExperienceInput {
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String
+  company: String!
+  user: ID!
+}
+
+input UpdateExperienceInput {
+  category: Category
+  startDate: DateTime
+  endDate: DateTime
+  role: String
+  company: String
+  user: ID
+}
+
 input WorkCreateSkillsInput {
   set: [String!]
 }
@@ -92,4 +128,9 @@ input WorkCreateSoftwaresInput {
 enum Role {
   ADMIN
   USER
+}
+
+enum Category {
+  EDUCATION
+  JOB
 }
