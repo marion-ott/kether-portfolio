@@ -22,6 +22,27 @@ const Mutation = {
   async deleteWork(parent, { id }, { prisma }) {
     const work = await prisma.deleteWork({ id })
     return work
+  },
+  async createExperience(parent, { input }, { prisma }) {
+    const body = {
+      ...input,
+      user: {
+        connect: { id: input.user }
+      }
+    }
+    const experience = await prisma.createExperience(body)
+    return experience
+  },
+  async updateExperience(parent, { id, input }, { prisma }) {
+    const experience = await prisma.updateExperience({
+      data: input,
+      where: { id }
+    })
+    return experience
+  },
+  async deleteExperience(parent, { id }, { prisma }) {
+    const experience = await prisma.deleteExperience({ id })
+    return experience
   }
 }
 

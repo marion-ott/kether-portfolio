@@ -3,7 +3,11 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateUser {
+/* GraphQL */ `type AggregateExperience {
+  count: Int!
+}
+
+type AggregateUser {
   count: Int!
 }
 
@@ -15,9 +19,311 @@ type BatchPayload {
   count: Long!
 }
 
+enum Category {
+  EDUCATION
+  JOB
+}
+
+scalar DateTime
+
+type Experience {
+  id: ID!
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String
+  company: String!
+  user: User!
+}
+
+type ExperienceConnection {
+  pageInfo: PageInfo!
+  edges: [ExperienceEdge]!
+  aggregate: AggregateExperience!
+}
+
+input ExperienceCreateInput {
+  id: ID
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String
+  company: String!
+  user: UserCreateOneWithoutExperiencesInput!
+}
+
+input ExperienceCreateManyWithoutUserInput {
+  create: [ExperienceCreateWithoutUserInput!]
+  connect: [ExperienceWhereUniqueInput!]
+}
+
+input ExperienceCreateWithoutUserInput {
+  id: ID
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String
+  company: String!
+}
+
+type ExperienceEdge {
+  node: Experience!
+  cursor: String!
+}
+
+enum ExperienceOrderByInput {
+  id_ASC
+  id_DESC
+  category_ASC
+  category_DESC
+  startDate_ASC
+  startDate_DESC
+  endDate_ASC
+  endDate_DESC
+  role_ASC
+  role_DESC
+  company_ASC
+  company_DESC
+}
+
+type ExperiencePreviousValues {
+  id: ID!
+  category: Category!
+  startDate: DateTime!
+  endDate: DateTime
+  role: String
+  company: String!
+}
+
+input ExperienceScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  category: Category
+  category_not: Category
+  category_in: [Category!]
+  category_not_in: [Category!]
+  startDate: DateTime
+  startDate_not: DateTime
+  startDate_in: [DateTime!]
+  startDate_not_in: [DateTime!]
+  startDate_lt: DateTime
+  startDate_lte: DateTime
+  startDate_gt: DateTime
+  startDate_gte: DateTime
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  role: String
+  role_not: String
+  role_in: [String!]
+  role_not_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_gt: String
+  role_gte: String
+  role_contains: String
+  role_not_contains: String
+  role_starts_with: String
+  role_not_starts_with: String
+  role_ends_with: String
+  role_not_ends_with: String
+  company: String
+  company_not: String
+  company_in: [String!]
+  company_not_in: [String!]
+  company_lt: String
+  company_lte: String
+  company_gt: String
+  company_gte: String
+  company_contains: String
+  company_not_contains: String
+  company_starts_with: String
+  company_not_starts_with: String
+  company_ends_with: String
+  company_not_ends_with: String
+  AND: [ExperienceScalarWhereInput!]
+  OR: [ExperienceScalarWhereInput!]
+  NOT: [ExperienceScalarWhereInput!]
+}
+
+type ExperienceSubscriptionPayload {
+  mutation: MutationType!
+  node: Experience
+  updatedFields: [String!]
+  previousValues: ExperiencePreviousValues
+}
+
+input ExperienceSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ExperienceWhereInput
+  AND: [ExperienceSubscriptionWhereInput!]
+  OR: [ExperienceSubscriptionWhereInput!]
+  NOT: [ExperienceSubscriptionWhereInput!]
+}
+
+input ExperienceUpdateInput {
+  category: Category
+  startDate: DateTime
+  endDate: DateTime
+  role: String
+  company: String
+  user: UserUpdateOneRequiredWithoutExperiencesInput
+}
+
+input ExperienceUpdateManyDataInput {
+  category: Category
+  startDate: DateTime
+  endDate: DateTime
+  role: String
+  company: String
+}
+
+input ExperienceUpdateManyMutationInput {
+  category: Category
+  startDate: DateTime
+  endDate: DateTime
+  role: String
+  company: String
+}
+
+input ExperienceUpdateManyWithoutUserInput {
+  create: [ExperienceCreateWithoutUserInput!]
+  delete: [ExperienceWhereUniqueInput!]
+  connect: [ExperienceWhereUniqueInput!]
+  set: [ExperienceWhereUniqueInput!]
+  disconnect: [ExperienceWhereUniqueInput!]
+  update: [ExperienceUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [ExperienceUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [ExperienceScalarWhereInput!]
+  updateMany: [ExperienceUpdateManyWithWhereNestedInput!]
+}
+
+input ExperienceUpdateManyWithWhereNestedInput {
+  where: ExperienceScalarWhereInput!
+  data: ExperienceUpdateManyDataInput!
+}
+
+input ExperienceUpdateWithoutUserDataInput {
+  category: Category
+  startDate: DateTime
+  endDate: DateTime
+  role: String
+  company: String
+}
+
+input ExperienceUpdateWithWhereUniqueWithoutUserInput {
+  where: ExperienceWhereUniqueInput!
+  data: ExperienceUpdateWithoutUserDataInput!
+}
+
+input ExperienceUpsertWithWhereUniqueWithoutUserInput {
+  where: ExperienceWhereUniqueInput!
+  update: ExperienceUpdateWithoutUserDataInput!
+  create: ExperienceCreateWithoutUserInput!
+}
+
+input ExperienceWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  category: Category
+  category_not: Category
+  category_in: [Category!]
+  category_not_in: [Category!]
+  startDate: DateTime
+  startDate_not: DateTime
+  startDate_in: [DateTime!]
+  startDate_not_in: [DateTime!]
+  startDate_lt: DateTime
+  startDate_lte: DateTime
+  startDate_gt: DateTime
+  startDate_gte: DateTime
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  role: String
+  role_not: String
+  role_in: [String!]
+  role_not_in: [String!]
+  role_lt: String
+  role_lte: String
+  role_gt: String
+  role_gte: String
+  role_contains: String
+  role_not_contains: String
+  role_starts_with: String
+  role_not_starts_with: String
+  role_ends_with: String
+  role_not_ends_with: String
+  company: String
+  company_not: String
+  company_in: [String!]
+  company_not_in: [String!]
+  company_lt: String
+  company_lte: String
+  company_gt: String
+  company_gte: String
+  company_contains: String
+  company_not_contains: String
+  company_starts_with: String
+  company_not_starts_with: String
+  company_ends_with: String
+  company_not_ends_with: String
+  user: UserWhereInput
+  AND: [ExperienceWhereInput!]
+  OR: [ExperienceWhereInput!]
+  NOT: [ExperienceWhereInput!]
+}
+
+input ExperienceWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
+  createExperience(data: ExperienceCreateInput!): Experience!
+  updateExperience(data: ExperienceUpdateInput!, where: ExperienceWhereUniqueInput!): Experience
+  updateManyExperiences(data: ExperienceUpdateManyMutationInput!, where: ExperienceWhereInput): BatchPayload!
+  upsertExperience(where: ExperienceWhereUniqueInput!, create: ExperienceCreateInput!, update: ExperienceUpdateInput!): Experience!
+  deleteExperience(where: ExperienceWhereUniqueInput!): Experience
+  deleteManyExperiences(where: ExperienceWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -50,6 +356,9 @@ type PageInfo {
 }
 
 type Query {
+  experience(where: ExperienceWhereUniqueInput!): Experience
+  experiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience]!
+  experiencesConnection(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ExperienceConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -65,6 +374,7 @@ enum Role {
 }
 
 type Subscription {
+  experience(where: ExperienceSubscriptionWhereInput): ExperienceSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   work(where: WorkSubscriptionWhereInput): WorkSubscriptionPayload
 }
@@ -80,6 +390,7 @@ type User {
   city: String
   zipCode: Int
   bio: String
+  experiences(where: ExperienceWhereInput, orderBy: ExperienceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Experience!]
 }
 
 type UserConnection {
@@ -89,6 +400,25 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
+  role: Role!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+  experiences: ExperienceCreateManyWithoutUserInput
+}
+
+input UserCreateOneWithoutExperiencesInput {
+  create: UserCreateWithoutExperiencesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutExperiencesInput {
   id: ID
   role: Role!
   firstName: String!
@@ -170,6 +500,7 @@ input UserUpdateInput {
   city: String
   zipCode: Int
   bio: String
+  experiences: ExperienceUpdateManyWithoutUserInput
 }
 
 input UserUpdateManyMutationInput {
@@ -182,6 +513,30 @@ input UserUpdateManyMutationInput {
   city: String
   zipCode: Int
   bio: String
+}
+
+input UserUpdateOneRequiredWithoutExperiencesInput {
+  create: UserCreateWithoutExperiencesInput
+  update: UserUpdateWithoutExperiencesDataInput
+  upsert: UserUpsertWithoutExperiencesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutExperiencesDataInput {
+  role: Role
+  firstName: String
+  lastName: String
+  email: String
+  phone: Int
+  address: String
+  city: String
+  zipCode: Int
+  bio: String
+}
+
+input UserUpsertWithoutExperiencesInput {
+  update: UserUpdateWithoutExperiencesDataInput!
+  create: UserCreateWithoutExperiencesInput!
 }
 
 input UserWhereInput {
@@ -303,6 +658,9 @@ input UserWhereInput {
   bio_not_starts_with: String
   bio_ends_with: String
   bio_not_ends_with: String
+  experiences_every: ExperienceWhereInput
+  experiences_some: ExperienceWhereInput
+  experiences_none: ExperienceWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

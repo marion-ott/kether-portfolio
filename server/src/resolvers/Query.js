@@ -10,6 +10,12 @@ const Query = {
   },
   work(parent, { id }, { prisma }) {
     return prisma.work({ id })
+  },
+  experiences(parent, args, { prisma }) {
+    return prisma.experiences()
+  },
+  experience(parent, { id }, { prisma }) {
+    return prisma.experience({ id })
   }
 }
 
