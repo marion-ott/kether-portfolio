@@ -3,16 +3,6 @@
 ### Konami
 Press the following keys : ↑ ↑ → ↓ ←
 
-## Groupe 0
-###### LENGLIN	Quentin
-###### LEROY	Valentine
-###### OTT	Marion
-###### REYNAUD	Anthony
-###### SAHBI	Florian
-###### TRAVAILLÉ	Hector
-###### ZEROUAL	Mahel
-
-
 ### Installation
 
 ```shell
@@ -23,3 +13,13 @@ $ yarn start
 $ cd client
 $ yarn install
 $ yarn start
+
+## Groupe 0
+###### LENGLIN	Quentin
+###### LEROY	Valentine
+###### OTT	Marion
+###### REYNAUD	Anthony
+###### SAHBI	Florian
+###### TRAVAILLÉ	Hector
+###### ZEROUAL	Mahel
+
