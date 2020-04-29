@@ -24,6 +24,9 @@ function CardComp({ name, place, link }) {
 
 function Works() {
   const { loading, error, data } = useQuery(GET_WORKS);
+  if (loading) {
+    return <p>loading</p>;
+  }
 
   if (loading) {
     return <p>loading</p>;
