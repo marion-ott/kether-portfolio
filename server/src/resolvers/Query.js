@@ -12,11 +12,9 @@ const Query = {
     return prisma.work({ id })
   },
   experiences(parent, args, { prisma }) {
-    console.log('getting experiences')
     return prisma.experiences()
   },
   experience(parent, { id }, { prisma }) {
-    console.log('getting an experience')
     return prisma.experience({ id })
   }
 }
