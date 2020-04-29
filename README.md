@@ -1,5 +1,8 @@
 # [React/Node] TP TDD/BDD Hetic
 
+### Konami
+Press the following keys : up up right down left
+
 ## Groupe 0
 ###### LENGLIN	Quentin
 ###### LEROY	Valentine
